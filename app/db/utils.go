@@ -1,7 +1,9 @@
 package db
 
 import (
+	"fmt"
 	"log"
+	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -15,7 +17,10 @@ var (
 func InitConnection() {
 	log.Println("Init connection...")
 
-	dsn := "host=10.204.0.3 user=postgres password=lsdbhl13hahsasd dbname=irs port=5432"
+	host := os.Getenv("DB_HOST")
+	password := os.Getenv("DB_PASSWORD")
+
+	dsn := fmt.Sprintf(`host=%s user=postgres password=%s dbname=irs port=5432`, host, password)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: logger.Default.LogMode(logger.Info)})
 	log.Println(err)
 	if err != nil {
