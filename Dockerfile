@@ -1,10 +1,11 @@
 FROM golang:1.22 as builder
 ADD ./app /app
 WORKDIR /app
-RUN go build -o api /app/*.go
+RUN go build -o /go/bin/api /app/*.go
 
-FROM debian:stable-slim
+FROM ubuntu:latest
 EXPOSE 50007
-WORKDIR /app
-COPY --from=builder /app/api .
-CMD ["./api"]
+RUN mkdir -p /go/bin
+COPY --from=builder /go/bin/api /go/bin
+WORKDIR /go/bin
+ENTRYPOINT "./api"
