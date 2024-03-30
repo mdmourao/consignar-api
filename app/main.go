@@ -23,13 +23,6 @@ func main() {
 
 	})
 
-	router.GET("", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "ok",
-		})
-
-	})
-
 	router.GET("/localities", rest.GetLocalities)
 	router.GET("/localities/:id", rest.GetLocalityById)
 	router.GET("/localities/:id/entities", rest.GetEntitiesFromLocalityId)
