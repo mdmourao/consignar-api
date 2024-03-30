@@ -1,0 +1,14 @@
+services:
+  api:
+    image: api
+    command: >
+      /bin/sh -c "go install github.com/cosmtrek/air@latest && air"
+    volumes:
+      - ../../app:/app
+    ports: 
+     - "50007:50007"
+    networks:
+      - dev-net
+networks:
+  dev-net:
+    external: true
