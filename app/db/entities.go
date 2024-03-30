@@ -20,6 +20,15 @@ func GetEntitiesCount(localityId int) int64 {
 	return count
 }
 
+func GetEntitiesTotal() int64 {
+
+	var count int64 = 0
+
+	Gorm.Table("entities").Count(&count)
+
+	return count
+}
+
 func GetEntityById(id int) (models.Entity, error) {
 	entity := models.Entity{}
 

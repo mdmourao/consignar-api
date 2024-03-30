@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"math/rand"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -55,6 +56,22 @@ func GetEntityById(c *gin.Context) {
 	}
 
 	entity, err := db.GetEntityById(id)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status": "server error",
+		})
+	}
+
+	c.JSON(http.StatusOK, entity)
+}
+
+func GetRandomEntity(c *gin.Context) {
+	max := int(db.GetEntitiesTotal())
+	min := 1
+
+	randomID := rand.Intn(max-min) + min
+
+	entity, err := db.GetEntityById(randomID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status": "server error",

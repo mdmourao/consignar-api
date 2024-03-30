@@ -28,6 +28,7 @@ func main() {
 	router.GET("/localities/:id/entities", rest.GetEntitiesFromLocalityId)
 
 	router.GET("/entities/:id", rest.GetEntityById)
+	router.GET("/entities/random", rest.GetRandomEntity)
 
 	router.Run(":50007")
 }
