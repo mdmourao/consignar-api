@@ -1,7 +1,7 @@
 # IRS API
 
 Consignar.pt [consignar.pt](https://consignar.pt/)  
-REST API [consignar.pt](https://rest.consignar.pt/)  
+REST API [rest.consignar.pt](https://rest.consignar.pt/)  
 
 
 ## Run dev
