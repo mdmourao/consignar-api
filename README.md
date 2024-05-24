@@ -1,7 +1,8 @@
 # IRS API
 
-Open [consignar.pt](https://consignar.pt/)  
-API [irs-api-clrebjajka-ez.a.run.app](https://irs-api-clrebjajka-ez.a.run.app/)
+Consignar.pt [consignar.pt](https://consignar.pt/)  
+REST API [consignar.pt](https://rest.consignar.pt/)  
+
 
 ## Run dev
 
